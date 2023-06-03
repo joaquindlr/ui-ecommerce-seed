@@ -1,6 +1,6 @@
 import style from "./SideBar.module.scss";
 
-const Sidebar = () => {
+export default async function Sidebar() {
   return (
     <menu className={style.sidebar}>
       <ul className={style["sidebar-list"]}>
@@ -10,6 +10,4 @@ const Sidebar = () => {
       </ul>
     </menu>
   );
-};
-
-export default Sidebar;
+}

@@ -16,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className} style={{ margin: 0, height: "100vh" }}>
         <Navbar />
+        {/* @ts-expect-error Async Server Component */}
         <Sidebar />
         {children}
       </body>

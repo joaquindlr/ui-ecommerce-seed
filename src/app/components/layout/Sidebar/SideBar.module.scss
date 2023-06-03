@@ -1,0 +1,28 @@
+@import "../../../styles/colors";
+
+.sidebar {
+  background-color: $bg-color-1;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  height: 92vh;
+
+  .sidebar-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 22px;
+  }
+
+  .sidebar-item {
+    color: $light-color;
+    padding-left: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    cursor: pointer;
+    &:hover {
+      background-color: $bg-color-hover-1;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "../../../styles/colors";
+
+.navbar {
+  height: 8vh;
+  padding-left: 20%;
+  padding-right: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: $bg-color-2;
+}

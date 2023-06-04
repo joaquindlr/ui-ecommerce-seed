@@ -1,6 +1,7 @@
-import { Navbar } from "./components";
-import { font } from "./assets/fonts";
-import Sidebar from "./components/layout/Sidebar";
+import { Navbar } from "../components";
+import { font } from "../assets/fonts";
+import Sidebar from "../components/layout/Sidebar";
+import style from "./app.module.scss";
 
 export const metadata = {
   title: "Next.js",
@@ -14,11 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className} style={{ margin: 0, height: "100vh" }}>
+      <body className={`${font.className} ${style.body}`}>
         <Navbar />
-        {/* @ts-expect-error Async Server Component */}
-        <Sidebar />
-        {children}
+        <div className={style.layout}>
+          {/* @ts-expect-error Async Server Component */}
+          <Sidebar />
+          {children}
+        </div>
       </body>
     </html>
   );

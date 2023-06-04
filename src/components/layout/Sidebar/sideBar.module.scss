@@ -7,7 +7,7 @@
   width: 200px;
   height: 92vh;
 
-  .sidebar-list {
+  .sidebar__list {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -15,11 +15,12 @@
     padding-bottom: 22px;
   }
 
-  .sidebar-item {
-    color: $light-color;
+  .sidebar__item {
+    color: $dark-color;
     padding-left: 30px;
     padding-top: 8px;
     padding-bottom: 8px;
+    font-weight: 600;
     cursor: pointer;
     &:hover {
       background-color: $bg-color-hover-1;

@@ -1,0 +1,14 @@
+@import "../../../styles/colors";
+
+.button {
+  height: 30px;
+  min-width: 80px;
+  background-color: $primary-color;
+  border-style: none;
+  color: $light-color;
+  border-radius: 4px;
+
+  &:active {
+    background-color: $bg-color-1;
+  }
+}

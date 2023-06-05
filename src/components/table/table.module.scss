@@ -1,0 +1,19 @@
+@import "../../styles/colors";
+
+.table {
+  width: 100%;
+  padding: 20px;
+  padding-top: 10px;
+
+  .divider {
+    border-bottom: 1px solid $label-color;
+    width: 100%;
+  }
+
+  th {
+    text-align: start;
+    color: $label-color;
+    border-bottom: 1px solid $border-color-1;
+    font-weight: 400;
+  }
+}

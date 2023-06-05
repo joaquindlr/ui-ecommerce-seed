@@ -1,6 +1,5 @@
-import { Navbar } from "../components";
+import { Navbar, Sidebar } from "../components";
 import { font } from "../assets/fonts";
-import Sidebar from "../components/layout/Sidebar";
 import style from "./app.module.scss";
 
 export const metadata = {

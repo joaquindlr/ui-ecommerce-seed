@@ -1,13 +1,19 @@
+//componentes
 import { Table } from "@/components";
-import style from "./products.module.scss";
+//utils
 import { Product } from "@/types/products.types";
+import style from "./products.module.scss";
+//services
+import { getAllProducts } from "../../services/ProductService";
 
 export default async function Products() {
+  const products = await getAllProducts();
+  console.log(products);
   return (
     <div className={style["products"]}>
       <h2 className={style["products__title"]}>Products</h2>
       <div className={style["products__card"]}>
-        <Table products={productsMOCK} />
+        <Table products={products} />
       </div>
     </div>
   );

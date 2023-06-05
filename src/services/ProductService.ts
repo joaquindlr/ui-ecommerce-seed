@@ -1,4 +1,4 @@
-import httpRequest from "./httpRequest";
+import httpRequest from "../services/HttpRequest";
 
 const getAllProducts = async () => {
   try {

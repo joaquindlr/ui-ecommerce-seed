@@ -1,12 +1,12 @@
 import httpRequest from "../services/HttpRequest";
 
-const getAllProducts = async () => {
+async function getAllProducts() {
   try {
     const { data } = await httpRequest.get("/products");
     return data;
   } catch (e) {
     console.warn(e);
   }
-};
+}
 
 export { getAllProducts };

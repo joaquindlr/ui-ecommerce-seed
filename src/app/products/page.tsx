@@ -1,4 +1,4 @@
-//componentes
+//components
 import { Table } from "@/components";
 //utils
 import style from "./products.module.scss";
@@ -13,7 +13,7 @@ export default async function Products() {
     <div className={style["products"]}>
       <div className={style["products__title-container"]}>
         <h2 className={style["products__title"]}>Products</h2>
-        <Button>Agregar</Button>
+        <Button>AGREGAR</Button>
       </div>
       <div className={style["products__card"]}>
         <Table products={products} />

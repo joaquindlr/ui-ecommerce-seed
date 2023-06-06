@@ -21,7 +21,10 @@
     padding-top: 8px;
     padding-bottom: 8px;
     font-weight: 600;
+    text-decoration: none;
+    display: block;
     cursor: pointer;
+
     &:hover {
       background-color: $bg-color-hover-1;
     }

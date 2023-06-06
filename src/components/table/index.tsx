@@ -1,5 +1,6 @@
 import { Product } from "@/types/products.types";
 import style from "./table.module.scss";
+import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
 const Table = ({ products }: { products: Product[] }) => {
   return (
@@ -7,9 +8,9 @@ const Table = ({ products }: { products: Product[] }) => {
       <thead>
         <tr>
           <th>Nombre</th>
-          <th>Descripcion</th>
           <th>Precio</th>
           <th>Cantidad</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -17,9 +18,12 @@ const Table = ({ products }: { products: Product[] }) => {
           return (
             <tr key={product.id}>
               <td>{product.name}</td>
-              <td>{product.description}</td>
               <td>{product.price}</td>
               <td>{product.stock}</td>
+              <td>
+                <AiOutlineEdit />
+                <AiOutlineDelete />
+              </td>
             </tr>
           );
         })}

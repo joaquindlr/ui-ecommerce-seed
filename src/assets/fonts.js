@@ -1,6 +1,6 @@
-import { Space_Grotesk as spaceGrotesk } from "@next/font/google";
+import { Roboto as roboto } from "@next/font/google";
 
-export const font = spaceGrotesk({
-  weight: ["400", "600", "700"],
+export const font = roboto({
+  weight: ["400", "700"],
   subsets: ["latin"],
 });

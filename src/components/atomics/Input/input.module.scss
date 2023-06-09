@@ -1,0 +1,30 @@
+@import "../../../styles/colors";
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .input__border {
+    height: 30px;
+    width: 100%;
+    border: 2px solid $border-color-1;
+    border-radius: 8px;
+    color: $primary-color;
+    font-weight: 700;
+    padding-left: 8px;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+
+  .input__label {
+    margin-left: 8px;
+    margin-bottom: 2px;
+    font-weight: 700;
+    color: $dark-color;
+  }
+}

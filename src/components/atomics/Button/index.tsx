@@ -9,9 +9,13 @@ const Button = ({
   children: ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
+  function onClickDefault(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+    onClick && onClick(e);
+  }
   return (
     <button
-      onClick={onClick}
+      onClick={onClickDefault}
       className={`${style["button"]} ${font.className}`}
     >
       {children}

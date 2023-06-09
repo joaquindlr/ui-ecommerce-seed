@@ -1,15 +1,15 @@
 "use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 //components
 import { Table } from "@/components";
+import { Button, Card } from "@/components/atomics";
 //utils
 import style from "./products.module.scss";
+import { Product } from "@/types/products.types";
 //services
 import { getAllProducts } from "../../services/ProductService";
-import { Button } from "@/components/atomics";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Product } from "@/types/products.types";
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>();
@@ -32,11 +32,11 @@ const Products = () => {
   return (
     <div className={style["products"]}>
       <div className={style["products__title-container"]}>
-        <h2 className={style["products__title"]}>Products</h2>
+        <h2 className={style["products__title"]}>Productos</h2>
         <Button onClick={goToNewProduct}>AGREGAR</Button>
       </div>
       <div className={style["products__card"]}>
-        {products && <Table products={products} />}
+        <Card>{products && <Table products={products} />}</Card>
       </div>
     </div>
   );

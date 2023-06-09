@@ -1,0 +1,21 @@
+@import "../../../styles/colors";
+
+.new-product {
+  padding: 20px;
+  background-color: $bg-color-2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .new-product__input {
+    margin-bottom: 15px;
+  }
+
+  .new-product__form {
+    padding: 30px;
+  }
+
+  .new-product__card {
+    width: 400px;
+  }
+}

@@ -3,7 +3,8 @@
 import { Button, Card, Input } from "@/components/atomics";
 //styles
 import style from "./new-product.module.scss";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
+import { InputEvent } from "@/types/general.types";
 
 export default function NewProduct() {
   const [name, setName] = useState("");
@@ -11,19 +12,19 @@ export default function NewProduct() {
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
 
-  function onChangeName(e: ChangeEvent<HTMLInputElement>) {
+  function onChangeName(e: InputEvent) {
     setName(e.target.value);
   }
 
-  function onChangeDescription(e: ChangeEvent<HTMLInputElement>) {
+  function onChangeDescription(e: InputEvent) {
     setDescription(e.target.value);
   }
 
-  function onChangePrice(e: ChangeEvent<HTMLInputElement>) {
+  function onChangePrice(e: InputEvent) {
     setPrice(e.target.value);
   }
 
-  function onChangeStock(e: ChangeEvent<HTMLInputElement>) {
+  function onChangeStock(e: InputEvent) {
     setStock(e.target.value);
   }
 
@@ -38,6 +39,7 @@ export default function NewProduct() {
             </div>
             <div className={style["new-product__input"]}>
               <Input
+                textArea
                 value={description}
                 onChange={onChangeDescription}
                 label="Descripcion"

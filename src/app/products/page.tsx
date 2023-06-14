@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 //components
 import { Table } from "@/components";
 import { Button, Card } from "@/components/atomics";
+import { ToastContainer } from "react-toastify";
+
 //utils
 import style from "./products.module.scss";
 import { Product } from "@/types/products.types";
@@ -37,6 +39,7 @@ const Products = () => {
       <div className={style["products__card"]}>
         <Card>{products && <Table products={products} />}</Card>
       </div>
+      <ToastContainer />
     </div>
   );
 };

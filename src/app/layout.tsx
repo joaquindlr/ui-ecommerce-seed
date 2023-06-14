@@ -1,6 +1,7 @@
 import { Navbar, Sidebar } from "@/components";
 import { font } from "@/assets/fonts";
 import style from "./app.module.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Next.js",

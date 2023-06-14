@@ -1,12 +1,19 @@
 "use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 //components
 import { Button, Card, Input } from "@/components/atomics";
+import { toast } from "react-toastify";
+
 //styles
 import style from "./new-product.module.scss";
-import { useState } from "react";
-import { InputEvent } from "@/types/general.types";
-import { useRouter } from "next/navigation";
+
+//services
 import { addProduct } from "@/services/ProductService";
+
+//utils
+import { InputEvent } from "@/types/general.types";
 
 export default function NewProduct() {
   const [name, setName] = useState("");
@@ -39,6 +46,8 @@ export default function NewProduct() {
       stock: parseInt(stock, 10),
     };
     await addProduct(newProduct);
+    toast.success("Producto agregado con exito!");
+    router.back();
   }
 
   function handleCancel() {

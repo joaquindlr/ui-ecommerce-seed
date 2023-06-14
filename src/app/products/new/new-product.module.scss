@@ -7,6 +7,17 @@
   flex-direction: column;
   width: 100%;
 
+  .new-product__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+  }
+
+  .new-product__header-button {
+    width: 100px;
+  }
+
   .new-product__input {
     margin-bottom: 15px;
   }

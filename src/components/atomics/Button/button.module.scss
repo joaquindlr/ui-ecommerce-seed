@@ -7,6 +7,7 @@
   border-style: none;
   color: $light-color;
   border-radius: 8px;
+  font-weight: 700;
   cursor: pointer;
 
   &:hover {
@@ -15,5 +16,21 @@
 
   &:active {
     background-color: $bg-color-1;
+  }
+}
+
+.button--outlined {
+  background-color: transparent;
+  border: 3px solid $primary-color;
+  color: $primary-color;
+
+  &:hover {
+    background-color: $bg-color-hover-1;
+    color: $light-color;
+  }
+
+  &:active {
+    background-color: $bg-color-1;
+    color: $light-color;
   }
 }

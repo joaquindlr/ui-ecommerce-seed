@@ -5,12 +5,15 @@ import { Button, Card, Input } from "@/components/atomics";
 import style from "./new-product.module.scss";
 import { useState } from "react";
 import { InputEvent } from "@/types/general.types";
+import { useRouter } from "next/navigation";
+import { addProduct } from "@/services/ProductService";
 
 export default function NewProduct() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
+  const router = useRouter();
 
   function onChangeName(e: InputEvent) {
     setName(e.target.value);
@@ -28,9 +31,30 @@ export default function NewProduct() {
     setStock(e.target.value);
   }
 
+  async function handleConfirm() {
+    const newProduct = {
+      name,
+      description,
+      price: parseInt(price, 10),
+      stock: parseInt(stock, 10),
+    };
+    await addProduct(newProduct);
+  }
+
+  function handleCancel() {
+    router.back();
+  }
+
   return (
     <div className={style["new-product"]}>
-      <h2>Nuevo Producto</h2>
+      <div className={style["new-product__header"]}>
+        <h2>Nuevo Producto</h2>
+        <div className={style["new-product__header-button"]}>
+          <Button outlaned onClick={handleCancel}>
+            CANCELAR
+          </Button>
+        </div>
+      </div>
       <div className={style["new-product__card"]}>
         <Card>
           <form className={style["new-product__form"]}>
@@ -51,7 +75,7 @@ export default function NewProduct() {
             <div className={style["new-product__input"]}>
               <Input value={stock} onChange={onChangeStock} label="Cantidad" />
             </div>
-            <Button>Agregar</Button>
+            <Button onClick={handleConfirm}>CONFIRMAR</Button>
           </form>
         </Card>
       </div>

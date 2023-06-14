@@ -13,6 +13,7 @@ import { getAllProducts } from "../../services/ProductService";
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>();
+  const router = useRouter();
 
   async function getData() {
     const data = await getAllProducts();
@@ -22,8 +23,6 @@ const Products = () => {
   useEffect(function () {
     getData();
   }, []);
-
-  const router = useRouter();
 
   function goToNewProduct() {
     router.push("/products/new");

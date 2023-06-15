@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 //components
-import { Table } from "@/components";
+import { ProductTable } from "@/components";
 import { Button, Card } from "@/components/atomics";
 import { ToastContainer } from "react-toastify";
 
 //utils
 import style from "./products.module.scss";
 import { Product } from "@/types/products.types";
+
 //services
 import { getAllProducts } from "../../services/ProductService";
 
@@ -37,7 +38,7 @@ const Products = () => {
         <Button onClick={goToNewProduct}>AGREGAR</Button>
       </div>
       <div className={style["products__card"]}>
-        <Card>{products && <Table products={products} />}</Card>
+        <Card>{products && <ProductTable products={products} />}</Card>
       </div>
       <ToastContainer />
     </div>

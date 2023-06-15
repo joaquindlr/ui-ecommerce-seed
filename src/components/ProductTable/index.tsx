@@ -30,11 +30,23 @@ const ProductTable = ({ products }: { products: Product[] }) => {
     setSelectedProductsIds([]);
   }
 
-  function handleMainCheckBox(value: boolean) {
+  function handleMainCheck(value: boolean) {
+    value ? selectAllProducts() : unSelectAllProducts();
+  }
+
+  function handleCheck({
+    value,
+    productId,
+  }: {
+    value: boolean;
+    productId: number;
+  }) {
     if (value) {
-      selectAllProducts();
+      setSelectedProductsIds((prev) => [...prev, productId]);
     } else {
-      unSelectAllProducts();
+      setSelectedProductsIds(
+        selectedProductsIds.filter((id) => id !== productId)
+      );
     }
   }
 
@@ -50,7 +62,7 @@ const ProductTable = ({ products }: { products: Product[] }) => {
       <thead>
         <tr>
           <th>
-            <CheckBox onCheck={handleMainCheckBox} />
+            <CheckBox onCheck={handleMainCheck} />
           </th>
           <th>Nombre</th>
           <th>Precio</th>
@@ -72,7 +84,9 @@ const ProductTable = ({ products }: { products: Product[] }) => {
               <td>
                 <CheckBox
                   isChecked={productIsChecked(product.id)}
-                  onCheck={() => console.log("se agrega: ", product.id)}
+                  onCheck={(value) =>
+                    handleCheck({ productId: product.id, value })
+                  }
                 />
               </td>
               <td>{product.name}</td>

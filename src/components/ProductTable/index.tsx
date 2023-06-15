@@ -1,12 +1,13 @@
 "use client";
+import { useEffect, useState } from "react";
 import { Product } from "@/types/products.types";
 import style from "./table.module.scss";
-import { useState } from "react";
 import { BsTrash } from "react-icons/bs";
 import { BsPencil } from "react-icons/bs";
+import { CheckBox } from "../atomics";
 
 const ProductTable = ({ products }: { products: Product[] }) => {
-  const [selectedProducts, setSelectedProducts] = useState<Product[]>();
+  const [selectedProductsIds, setSelectedProductsIds] = useState<number[]>([]);
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
 
   const handleMouseEnter = (index: number) => {
@@ -17,12 +18,39 @@ const ProductTable = ({ products }: { products: Product[] }) => {
     setHoveredRowIndex(null);
   };
 
+  const productIsChecked = (productId: number) =>
+    selectedProductsIds.includes(productId);
+
+  function selectAllProducts() {
+    const productsIds = products.map((product) => product.id);
+    setSelectedProductsIds(productsIds);
+  }
+
+  function unSelectAllProducts() {
+    setSelectedProductsIds([]);
+  }
+
+  function handleMainCheckBox(value: boolean) {
+    if (value) {
+      selectAllProducts();
+    } else {
+      unSelectAllProducts();
+    }
+  }
+
+  useEffect(
+    function () {
+      console.log(selectedProductsIds);
+    },
+    [selectedProductsIds]
+  );
+
   return (
     <table className={style["table"]}>
       <thead>
         <tr>
           <th>
-            <input type="checkbox"></input>
+            <CheckBox onCheck={handleMainCheckBox} />
           </th>
           <th>Nombre</th>
           <th>Precio</th>
@@ -42,10 +70,10 @@ const ProductTable = ({ products }: { products: Product[] }) => {
               onMouseLeave={handleMouseLeave}
             >
               <td>
-                <input
-                  className={style["table__checkbox"]}
-                  type="checkbox"
-                ></input>
+                <CheckBox
+                  isChecked={productIsChecked(product.id)}
+                  onCheck={() => console.log("se agrega: ", product.id)}
+                />
               </td>
               <td>{product.name}</td>
               <td>{product.price}</td>
